@@ -8,18 +8,62 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #281553;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.App-title {
+  margin: calc(10px + 2vmin);
+}
+
+.App-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.button-header {
+  background: #8271A7;
+  -webkit-transition: background 0.5s; /* Safari */
+  transition: background 0.5s;
+  color: #281553;
+  border: none;
+  padding: 15px;
+  margin: calc(10px + 2vmin);
+  cursor: pointer;
+  font-size: 0.67em;
+  font-weight: bold;
+}
+
+.button-header:hover {
+  background: #AFA3C8;
+}
+
+.button-primary {
+  background: #281553;
+  -webkit-transition: background 0.5s; /* Safari */
+  transition: background 0.5s;
+  color: white;
+  border: none;
+  padding: 15px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.button-primary:hover {
+  background: #8271A7;
 }
 
 @keyframes App-logo-spin {
