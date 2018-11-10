@@ -1,35 +1,61 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Content from './components/Content';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: "default"
+      content: "default",
+      result: null,
+      loading: false
     };
-
-    // bind this
-    this.suggest = this.suggest.bind(this);
-    this.findRestaurant = this.findRestaurant.bind(this);
-    this.findBar = this.findBar.bind(this);
   }
 
-  suggest() {
+  suggest = () => {
     this.setState(state => ({
       content: "suggest"
     }));
   }
 
-  findRestaurant() {
+  findRestaurant = () => {
     this.setState(state => ({
-      content: "restaurant"
+      content: "restaurant",
+      loading: true
+    }));
+    fetch("https://dark-ghoul-26887.herokuapp.com/get_suggestion")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            loading: false,
+            data: result[0]
+          });
+          console.log(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            loading: false
+          });
+          console.log(error);
+        }
+      )
+  }
+
+  findBar = () => {
+    this.setState(state => ({
+      content: "bar"
     }));
   }
 
-  findBar() {
+  toHome = () => {
     this.setState(state => ({
-      content: "bar"
+      content: "default",
+      data: null
     }));
   }
 
@@ -40,25 +66,19 @@ class App extends Component {
           <h1 className="App-title">What To Eat</h1>
           <button className="button-header" onClick={this.suggest}>Suggest</button>
         </header>
-        {this.state.content}
-        <div className="App-content">
-          <button className="button-primary" onClick={this.findRestaurant}>Find a Restaurant</button>
-          <button className="button-primary" onClick={this.findBar}>Find a Bar</button>
+        <div className={"App-content " + (this.state.loading ? 'loading' : '')}>
+          <Content 
+            content={this.state.content}
+            data={this.state.data}
+            toHome={this.toHome}>
+          </Content>
+          {this.state.content === "default" &&
+            <div>
+              <button className="button-primary" onClick={this.findRestaurant}>Find a Restaurant</button>
+              <button className="button-primary" onClick={this.findBar}>Find a Bar</button>
+            </div>
+          }
         </div>
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
       </div>
     );
   }

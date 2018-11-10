@@ -1,0 +1,21 @@
+.button-primary {
+  background: #281553;
+  -webkit-transition: background 0.5s; /* Safari */
+  transition: background 0.5s;
+  color: white;
+  border: none;
+  padding: 15px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.button-primary:hover {
+  background: #8271A7;
+}
+
+.Content-header {
+  width: 100vw;
+  display: flex;
+}

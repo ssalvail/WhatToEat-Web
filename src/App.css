@@ -1,4 +1,7 @@
 .App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -26,6 +29,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
+  -webkit-transition: background 0.5s; /* Safari */
+  transition: background 0.5s;
+}
+
+.loading {
+  -webkit-transition: background 0.5s; /* Safari */
+  transition: background 0.5s;
+  background: #AFA3C8;
 }
 
 .App-link {
