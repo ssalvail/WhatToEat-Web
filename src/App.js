@@ -24,7 +24,7 @@ class App extends Component {
       content: "restaurant",
       loading: true
     }));
-    fetch("https://dark-ghoul-26887.herokuapp.com/get_suggestion")
+    fetch("https://dark-ghoul-26887.herokuapp.com/get_suggestion?type=restaurant")
       .then(res => res.json())
       .then(
         (result) => {
@@ -48,8 +48,29 @@ class App extends Component {
 
   findBar = () => {
     this.setState(state => ({
-      content: "bar"
+      content: "bar",
+      loading: true
     }));
+    fetch("https://dark-ghoul-26887.herokuapp.com/get_suggestion?type=bar")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            loading: false,
+            data: result[0]
+          });
+          console.log(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            loading: false
+          });
+          console.log(error);
+        }
+      )
   }
 
   toHome = () => {
