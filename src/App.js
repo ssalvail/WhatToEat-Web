@@ -32,7 +32,6 @@ class App extends Component {
             loading: false,
             data: result[0]
           });
-          console.log(result);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -41,7 +40,6 @@ class App extends Component {
           this.setState({
             loading: false
           });
-          console.log(error);
         }
       )
   }
@@ -59,7 +57,6 @@ class App extends Component {
             loading: false,
             data: result[0]
           });
-          console.log(result);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -68,7 +65,6 @@ class App extends Component {
           this.setState({
             loading: false
           });
-          console.log(error);
         }
       )
   }

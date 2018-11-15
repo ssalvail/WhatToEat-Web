@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './Content.css';
 
+import SuggestForm from './SuggestForm';
+
 function Index() {
   return <h1>Are You Looking for a Restaurant or Bar?</h1>;
 }
 
-function SuggestForm() {
-  return <h1>Suggest a Restaurant or Bar</h1>
-}
+// function SuggestForm() {
+//   return <h1>Suggest a Restaurant or Bar</h1>
+// }
 
 function Business(props) {
   return (<React.Fragment>

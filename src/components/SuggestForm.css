@@ -1,0 +1,27 @@
+.suggest-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.button-submit {
+  background: #281553;
+  -webkit-transition: background 0.5s; /* Safari */
+  transition: background 0.5s;
+  color: white;
+  border: none;
+  padding: 15px;
+  /* margin: 10px; */
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.button-submit:hover {
+  background: #8271A7;
+}
