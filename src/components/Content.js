@@ -3,15 +3,11 @@ import './Content.css';
 
 import SuggestForm from './SuggestForm';
 
-function Index() {
+const Index = () => {
   return <h1>Are You Looking for a Restaurant or Bar?</h1>;
 }
 
-// function SuggestForm() {
-//   return <h1>Suggest a Restaurant or Bar</h1>
-// }
-
-function Business(props) {
+const Business = (props) => {
   return (<React.Fragment>
             {props.data !== undefined && props.data !== null &&
             <React.Fragment>
