@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Content.css';
 
 import SuggestForm from './SuggestForm';
@@ -16,6 +17,10 @@ const Business = (props) => {
               <h3>Suggested By: {props.data.username}</h3>
             </React.Fragment>}
           </React.Fragment>);
+}
+
+Business.propTypes = {
+  data: PropTypes.object
 }
 
 class Content extends Component {
@@ -42,6 +47,12 @@ class Content extends Component {
       </React.Fragment>
     )
   }
+}
+
+Content.propTypes = {
+  content: PropTypes.string,
+  data: PropTypes.object,
+  toHome: PropTypes.func
 }
 
 export default Content;
